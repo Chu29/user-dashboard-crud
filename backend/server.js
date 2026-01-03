@@ -1,16 +1,17 @@
 require("dotenv").config();
-import express, { json } from "express";
-import cors from "cors";
-import { connect } from "mongoose";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
-app.use(json());
+app.use(express.json());
 
 // MongoDB connection
-connect(process.env.MONGODB_URI)
+mongoose
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected Successfully"))
   .catch((err) => console.log("MongoDB connection error:", err));
 
