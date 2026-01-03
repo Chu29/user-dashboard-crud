@@ -1,2 +1,5 @@
 #dependencies
 node_modules
+
+# Ignore the environment variables file
+.env
